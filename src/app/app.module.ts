@@ -12,9 +12,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './AuthInterceptor';
+import { HomeComponent } from './components/home/home.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AuthGuard } from './auth.guard';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HorariosComponent } from './components/horarios/horarios.component';
+import { DisciplinasComponent } from './components/disciplinas/disciplinas.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, SidebarComponent, HorariosComponent, DisciplinasComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +34,10 @@ import { AuthInterceptor } from './AuthInterceptor';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [
     {
@@ -32,6 +45,7 @@ import { AuthInterceptor } from './AuthInterceptor';
       useClass: AuthInterceptor,
       multi: true,
     },
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })

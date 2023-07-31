@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/enviroment';
 import { SessionModel } from '../models/SessionModel';
+import { AlunoModel } from '../models/AlunoModel';
 
 @Injectable({
   providedIn: 'root',
@@ -19,10 +20,20 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) {}
 
   public signIn(data: any): Observable<SessionModel> {
-    let headerOptions = new HttpHeaders({ 'No-Auth': 'True' });
+    let headerOptions = new HttpHeaders({ 'No-Auth': 'True', 'Content-Type': 'application/x-www-form-urlencoded' });
     return this.http.post<any>(environment.api + '/session/create', data, {
       headers: headerOptions,
     });
   }
+
+  public verifyIfSessionIsValid(uid: any): Observable<AlunoModel> {
+    let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
+    console.log(uid)
+    return this.http.get<any>(environment.api + '/aluno/all?uid='+uid, {
+      headers: headerOptions,
+    });
+  }
+
+
   logout(): void {}
 }

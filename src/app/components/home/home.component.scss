@@ -1,0 +1,32 @@
+
+.dashboard-card {
+  max-width: 100%;
+  padding:15px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+
+  background-color: #6D42BA;
+}
+
+.name {
+  font-size: 24px;
+  color: #333;
+}
+
+.mat-card-subtitle {
+  color: #777;
+  margin-top: -10px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}

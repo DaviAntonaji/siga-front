@@ -1,0 +1,16 @@
+
+<div class="calendario-container">
+    <div class="dia-semana" *ngFor="let dia of diasSemana">
+      <h3>{{ diasSemanaFormatado[dia] }}</h3>
+      <div class="aula" *ngFor="let aula of obterHorariosDoDiaOrdenados(dia)">
+        <mat-card style="margin-bottom:15px;">
+          <mat-card-content>
+            <p><strong>{{ aula.DISCIPLINA }}</strong></p>
+            <p>{{ aula.HORARIO }}</p>
+            <p>{{ aula.TURMA }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

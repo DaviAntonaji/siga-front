@@ -28,12 +28,7 @@ export class AuthInterceptor implements HttpInterceptor {
             });
         }
 
-        if (uid) {
-            clonedReq = clonedReq.clone({
-                params: clonedReq.params.set('uid', uid)
-            });
-        }
-
+      
         return next.handle(clonedReq);
     }
 }

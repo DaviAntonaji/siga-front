@@ -1,0 +1,32 @@
+.calendario-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+  }
+  
+  .dia-semana {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-card {
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-card-content {
+    padding: 10px;
+  }
+  
+  h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  strong {
+    color: #007bff;
+  }

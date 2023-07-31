@@ -1,0 +1,19 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <div mat-card-avatar class="avatar" style="background-image: url('{{aluno.FOTO_URL}}');"></div>
+    <mat-card-title class="name">{{ aluno.NOME.replace("-", "") }}</mat-card-title>
+    <mat-card-subtitle>{{ aluno.REGISTRO_ACADEMICO }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="!carregando">
+      <p><strong>Email:</strong> {{ aluno.EMAIL }}</p>
+      <p><strong>Unidade:</strong> {{ aluno.FATEC_UNIDADE }}</p>
+      <p><strong>Curso:</strong> {{ aluno.CURSO }} - {{aluno.CICLO}}° periodo</p>
+      <p><strong>Turno:</strong> {{ aluno.TURNO }}</p>
+    </div>
+    <div *ngIf="carregando">
+      Carregando informações...
+    </div>
+  </mat-card-content>
+  
+</mat-card>

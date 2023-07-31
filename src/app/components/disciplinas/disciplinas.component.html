@@ -1,0 +1,12 @@
+
+<div class="disciplinas-container">
+    <div class="disciplina" *ngFor="let disciplina of disciplinas">
+      <mat-card>
+        <mat-card-content style="height: 100px;">
+          <h3>{{ disciplina.ID }}</h3>
+          <p>{{ disciplina.DESCRICAO }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
