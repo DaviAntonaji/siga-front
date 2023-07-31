@@ -9,6 +9,8 @@ import { AlunoService } from 'src/app/services/aluno.service';
 })
 export class HorariosComponent {
 
+  carregando:boolean = true;
+
   horarios:any = {
     segunda:[],
     terca:[],
@@ -46,6 +48,7 @@ export class HorariosComponent {
   constructor(private alunoService: AlunoService) {
       this.alunoService.getHorario().subscribe(data => {
         this.horarios = data;
+        this.carregando = false;
       })
   }
 

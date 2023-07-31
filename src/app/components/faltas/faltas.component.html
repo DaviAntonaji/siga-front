@@ -1,0 +1,52 @@
+<div *ngIf="carregando">
+  <mat-spinner></mat-spinner>
+
+</div>
+<div class="example-container mat-elevation-z8" *ngIf="!carregando">
+  <div class="example-table-container">
+    <mat-table [dataSource]="faltasTable" class="example-table">
+      <!-- ID Column -->
+      <ng-container matColumnDef="ID">
+        <mat-header-cell *matHeaderCellDef
+          >Código da disciplina</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element">{{ element.ID }}</mat-cell>
+      </ng-container>
+
+      <!-- DESCRICAO Column -->
+      <ng-container matColumnDef="DESCRICAO">
+        <mat-header-cell *matHeaderCellDef>Disciplina</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.DESCRICAO }}</mat-cell>
+      </ng-container>
+
+      <!-- FALTAS Column -->
+      <ng-container matColumnDef="FALTAS">
+        <mat-header-cell *matHeaderCellDef>Faltas</mat-header-cell>
+        <mat-cell *matCellDef="let element"
+          >{{ element.FALTAS }} faltas</mat-cell
+        >
+      </ng-container>
+
+      <!-- PRESENCAS Column -->
+      <ng-container matColumnDef="PRESENCAS">
+        <mat-header-cell *matHeaderCellDef>Presenças</mat-header-cell>
+        <mat-cell *matCellDef="let element"
+          >{{ element.PRESENCAS }} presenças</mat-cell
+        >
+      </ng-container>
+
+      <!-- TOTAL Column -->
+      <ng-container matColumnDef="TOTAL">
+        <mat-header-cell *matHeaderCellDef>Frequência</mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngStyle]="{ 'color': defineCor(calculaPresenca(element.PRESENCAS, element.TOTAL)) }"
+          >{{ calculaPresenca(element.PRESENCAS, element.TOTAL) }}%</mat-cell
+        >
+      </ng-container>
+
+      <mat-header-row
+        *matHeaderRowDef="displayedColumns; sticky: true"
+      ></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>

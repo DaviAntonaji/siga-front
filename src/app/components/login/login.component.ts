@@ -31,7 +31,7 @@ export class LoginComponent {
       const password = this.loginForm.get('password').value;
 
       const urlSearchParams = new URLSearchParams();
-      urlSearchParams.set('id', username);
+      urlSearchParams.set('id', username.replace(".", "").replace("-", ""));
       urlSearchParams.set('password', password);
 
       // Set the content type to 'application/x-www-form-urlencoded'

@@ -1,4 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  /* background: #efefef; */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+
+  margin: 0;
+  font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif !important;
+}
+/* * {
+  font-weight: 100;
+} */
+
+/* revemo borda botão bootstrap */
+.button:active,
+button:active,
+.button:focus,
+button:focus,
+.button:hover,
+button:hover {
+  border: none !important;
+  outline: none !important;
+}
+
+.my-full-screen-dialog {
+  max-width: 100vw !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  .mat-dialog-container {
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; impede de rolar*/
+    /* background-color:rgba(0,0,0,.7); */
+  }
+}
+
+.my-full-screen-dialog2 {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.my-full-screen-dialog2 .mat-dialog-container2 {
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; impede de rolar*/
+  /* background-color:rgba(0,0,0,.7); */
+}

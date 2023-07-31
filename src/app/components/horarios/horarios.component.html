@@ -1,5 +1,8 @@
+<div *ngIf="carregando">
+  <mat-spinner></mat-spinner>
 
-<div class="calendario-container">
+</div>
+<div class="calendario-container" *ngIf="!carregando">
     <div class="dia-semana" *ngFor="let dia of diasSemana">
       <h3>{{ diasSemanaFormatado[dia] }}</h3>
       <div class="aula" *ngFor="let aula of obterHorariosDoDiaOrdenados(dia)">

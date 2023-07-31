@@ -21,9 +21,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HorariosComponent } from './components/horarios/horarios.component';
 import { DisciplinasComponent } from './components/disciplinas/disciplinas.component';
+import { FaltasComponent } from './components/faltas/faltas.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, SidebarComponent, HorariosComponent, DisciplinasComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, SidebarComponent, HorariosComponent, DisciplinasComponent, FaltasComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +40,9 @@ import { DisciplinasComponent } from './components/disciplinas/disciplinas.compo
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

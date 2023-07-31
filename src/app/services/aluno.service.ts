@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/enviroment';
 import { HorarioModel } from '../models/HorariosModel';
 import { DisciplinaModel } from '../models/DisciplinaModel';
+import { FaltaModel } from '../models/FaltaModel';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,13 @@ export class AlunoService {
     let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
     const uid = localStorage.getItem("uid");
     return this.http.get<any>(environment.api + '/disciplinas/all?uid='+uid, {
+      headers: headerOptions,
+    });
+  }
+  public getFaltas():Observable<FaltaModel[]> {
+    let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
+    const uid = localStorage.getItem("uid");
+    return this.http.get<any>(environment.api + '/faltas/all?uid='+uid, {
       headers: headerOptions,
     });
   }

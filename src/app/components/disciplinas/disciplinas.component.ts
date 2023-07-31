@@ -9,11 +9,12 @@ import { AlunoService } from 'src/app/services/aluno.service';
 })
 export class DisciplinasComponent {
   disciplinas:DisciplinaModel[] = [];
+  carregando:boolean = true;
   
   constructor(private alunoService: AlunoService) {
       this.alunoService.getDisciplinas().subscribe(data => {
         this.disciplinas = data;
-        console.log(this.disciplinas)
+        this.carregando = false;
       })
   }
 

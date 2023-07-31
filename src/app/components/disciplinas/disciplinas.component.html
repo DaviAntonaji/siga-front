@@ -1,5 +1,8 @@
+<div *ngIf="carregando">
+  <mat-spinner></mat-spinner>
 
-<div class="disciplinas-container">
+</div>
+<div class="disciplinas-container"  *ngIf="!carregando">
     <div class="disciplina" *ngFor="let disciplina of disciplinas">
       <mat-card>
         <mat-card-content style="height: 100px;">
