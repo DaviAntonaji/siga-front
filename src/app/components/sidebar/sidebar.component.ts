@@ -1,5 +1,6 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,6 +9,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 export class SidebarComponent {
   public selected_page = 'Home';
+  @ViewChild('snav') sidenav!: MatDrawer;
 
   pages = [
     {
@@ -43,6 +45,9 @@ export class SidebarComponent {
 
   public sendMessageToParent(page: any): void {
     this.selected_page = page;
+    if(this.mobileQuery.matches) {
+      this.sidenav.toggle();
+    }
   }
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
