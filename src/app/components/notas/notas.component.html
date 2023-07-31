@@ -1,0 +1,48 @@
+<mat-card>
+    <div *ngIf="carregando">
+      <mat-spinner></mat-spinner>
+    </div>
+  
+    <div *ngIf="!carregando">
+      <ng-container *ngIf="notas.length > 0; else noProvas">
+        <div *ngFor="let nota of notas">
+          <h2>{{ nota.DESCRICAO }}</h2>
+          <ng-container *ngIf="nota.PROVAS.length > 0; else noProvas">
+            <table class="provas-table">
+              <thead>
+                <tr>
+                  <th>Data da Prova</th>
+                  <th>Notas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let prova of nota.PROVAS" [ngClass]="{ 'destaque': isProvaDestaque(prova.DATA) }">
+                  <td>{{prova.ID}} -  {{ formatarData(prova.DATA) }}</td>
+                  <td>
+                    <ul class="avaliacoes">
+                      <ng-container *ngFor="let avaliacao of prova.AVALIACAO">
+                        <li [ngClass]="{ 'nota-nao-lancada': avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento === '0000-00-00' }">
+                          <p *ngIf="avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento !== '0000-00-00'">Nota: {{ avaliacao.ACD_PlanoEnsinoAvaliacaoParcialNota }}</p>
+                          <p *ngIf="avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento !== '0000-00-00'">
+                            Data de Lançamento: {{ avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento | date:'dd/MM/yyyy' }}
+                          </p>
+                          <p *ngIf="avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento === '0000-00-00'">
+                            Nota não lançada
+                          </p>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  
+    <ng-template #noProvas>
+      <p>Ainda não há provas programadas para essa disciplina.</p>
+    </ng-template>
+  </mat-card>
+  

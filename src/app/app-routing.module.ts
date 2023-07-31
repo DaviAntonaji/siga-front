@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import { HorariosComponent } from './components/horarios/horarios.component';
 import { DisciplinasComponent } from './components/disciplinas/disciplinas.component';
 import { FaltasComponent } from './components/faltas/faltas.component';
+import { NotasComponent } from './components/notas/notas.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'faltas',
         component: FaltasComponent,
+      },
+      {
+        path: 'notas',
+        component: NotasComponent,
       },
     ],
     canActivate: [AuthGuard]

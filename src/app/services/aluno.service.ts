@@ -7,6 +7,7 @@ import { environment } from 'src/environments/enviroment';
 import { HorarioModel } from '../models/HorariosModel';
 import { DisciplinaModel } from '../models/DisciplinaModel';
 import { FaltaModel } from '../models/FaltaModel';
+import { NotasModel } from '../models/NotasModel';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,11 @@ export class AlunoService {
       headers: headerOptions,
     });
   }
-
+  public getNotas():Observable<NotasModel[]> {
+    let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
+    const uid = localStorage.getItem("uid");
+    return this.http.get<any>(environment.api + '/notas/all?uid='+uid, {
+      headers: headerOptions,
+    });
+  }
 }

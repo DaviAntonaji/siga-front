@@ -24,9 +24,10 @@ import { DisciplinasComponent } from './components/disciplinas/disciplinas.compo
 import { FaltasComponent } from './components/faltas/faltas.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NotasComponent } from './components/notas/notas.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, SidebarComponent, HorariosComponent, DisciplinasComponent, FaltasComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, SidebarComponent, HorariosComponent, DisciplinasComponent, FaltasComponent, NotasComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
