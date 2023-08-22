@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DisciplinaModel } from 'src/app/models/DisciplinaModel';
+import { ProfessorModel } from 'src/app/models/ProfessorModel';
 import { AlunoService } from 'src/app/services/aluno.service';
 
 @Component({
@@ -8,13 +9,14 @@ import { AlunoService } from 'src/app/services/aluno.service';
   styleUrls: ['./disciplinas.component.scss']
 })
 export class DisciplinasComponent {
-  disciplinas:DisciplinaModel[] = [];
+  disciplinas:ProfessorModel[] = [];
   carregando:boolean = true;
+  professores:any = {}
   
   constructor(private alunoService: AlunoService) {
-      this.alunoService.getDisciplinas().subscribe(data => {
-        this.disciplinas = data;
-        this.carregando = false;
+    this.alunoService.getProfessores().subscribe(data => {
+          this.disciplinas = data;
+          this.carregando = false;
       })
   }
 

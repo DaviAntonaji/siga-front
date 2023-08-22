@@ -27,7 +27,6 @@
     [ngClass]="{ 'sidenav-collapsed': collapsedNav && !mobileQuery.matches }"
   >
     <mat-toolbar>
-      <!-- <button mat-icon-button (click)="snav.toggle()"> -->
       <button
         mat-icon-button
         (click)="
@@ -39,10 +38,18 @@
 
       <span class="example-fill-remaining-space"></span>
 
-      <!-- <button [matMenuTriggerFor]="menuUser" class="transparent"> <mat-card style="display: none"></mat-card><img mat-card-avatar style="background-size: cover !important" [src]="foto"></button> -->
+      <button [matMenuTriggerFor]="menuUser" class="transparent"> <img mat-card-avatar style="background-size: cover !important; margin-top:15px;" [src]="aluno.FOTO_URL"></button>
+
+      <mat-menu #menuUser="matMenu">
+
+        <button mat-menu-item (click)="logOut()">
+            <mat-icon>logout</mat-icon> Sair
+        </button>
+    </mat-menu>
+
     </mat-toolbar>
     <div class="div-principal" style="height: 100%; padding:1.5%;">
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

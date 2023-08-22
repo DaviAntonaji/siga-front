@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,17 @@ export class LoginComponent {
           this.authService.verifyIfSessionIsValid(uid).subscribe((res) => {
             console.log(res);
             if (res.error) {
-              alert('Login e/ou senha incorretos!');
+              Swal.fire({
+                heightAuto: false,
+                title: 'Ooops.',
+                text:'Login e/ou Senha incorretos',
+                icon: 'error',
+                iconColor: '#243645',
+                showCancelButton: false,
+                confirmButtonColor: '#243645',
+                confirmButtonText: 'OK'
+              });
+  
             } else {
               localStorage.setItem('uid', uid);
               this.router.navigate(["/home"])

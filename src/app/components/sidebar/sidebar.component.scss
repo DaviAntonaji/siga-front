@@ -37,7 +37,14 @@
     /* opacity: 0.9; */
     background: White;
 }
-
+.icon-text {
+    display: flex;
+    align-items: center;
+}
+mat-icon, .mat-icon {
+    vertical-align: middle;
+    margin-right:5px;
+}
 .mat-toolbar {
     /* opacity: 0.9; */
     background: #6D42BA;

@@ -5,9 +5,10 @@
 <div class="disciplinas-container"  *ngIf="!carregando">
     <div class="disciplina" *ngFor="let disciplina of disciplinas">
       <mat-card>
-        <mat-card-content style="height: 100px;">
-          <h3>{{ disciplina.ID }}</h3>
+        <mat-card-content style="height: 150px;">
+          <h2>{{ disciplina.ID }}</h2>
           <p>{{ disciplina.DESCRICAO }}</p>
+          <p style="color: #46277b">{{ disciplina.NOME }}</p>
         </mat-card-content>
       </mat-card>
     </div>

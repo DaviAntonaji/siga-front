@@ -5,7 +5,7 @@
 
 <mat-card class="dashboard-card" *ngIf="!carregando">
   <mat-card-header >
-    <div mat-card-avatar class="avatar" style="background-image: url('{{aluno.FOTO_URL}}');"></div>
+    <img mat-card-avatar style="background-size: cover !important; margin-top:15px;" [src]="aluno.FOTO_URL">
     <mat-card-title class="name">{{ aluno.NOME.replace("-", "") }}</mat-card-title>
     <mat-card-subtitle>{{ aluno.REGISTRO_ACADEMICO }}</mat-card-subtitle>
   </mat-card-header>

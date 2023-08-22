@@ -19,6 +19,9 @@ export class NotasComponent {
     });
   }
   formatarData(data: string): string {
+    if(data === '0000-00-00' || data === '0000-00-00T00:00:00') {
+        return "Ainda não há data programada para essa prova."
+    }
     const dataProva = new Date(data);
     const hoje = new Date();
     const diferencaEmDias = Math.ceil(
