@@ -25,7 +25,10 @@ export class AuthService {
       headers: headerOptions,
     });
   }
-
+  public logOut():any {
+    localStorage.clear();
+    this.router.navigate(["/login"])
+  }
   public verifyIfSessionIsValid(uid: any): Observable<AlunoModel> {
     let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
     console.log(uid)
@@ -35,5 +38,4 @@ export class AuthService {
   }
 
 
-  logout(): void {}
 }

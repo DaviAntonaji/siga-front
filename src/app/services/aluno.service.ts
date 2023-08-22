@@ -8,6 +8,7 @@ import { HorarioModel } from '../models/HorariosModel';
 import { DisciplinaModel } from '../models/DisciplinaModel';
 import { FaltaModel } from '../models/FaltaModel';
 import { NotasModel } from '../models/NotasModel';
+import { ProfessorModel } from '../models/ProfessorModel';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,13 @@ export class AlunoService {
     let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
     const uid = localStorage.getItem("uid");
     return this.http.get<any>(environment.api + '/notas/all?uid='+uid, {
+      headers: headerOptions,
+    });
+  }
+  public getProfessores():Observable<ProfessorModel[]> {
+    let headerOptions = new HttpHeaders({ 'No-Auth': 'False' });
+    const uid = localStorage.getItem("uid");
+    return this.http.get<any>(environment.api + '/professores/all?uid='+uid, {
       headers: headerOptions,
     });
   }

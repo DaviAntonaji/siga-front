@@ -1,4 +1,5 @@
 export const environment = {
-    production: false,
-    api: 'http://localhost/api',
+    production: true,
+    api: 'https://apisiga.antonaji.com.br/api',
+    // api: 'http://localhost/api',
   };

@@ -25,6 +25,11 @@ import { FaltasComponent } from './components/faltas/faltas.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotasComponent } from './components/notas/notas.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask, provideNgxMask } from 'ngx-mask';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent, SidebarComponent, HorariosComponent, DisciplinasComponent, FaltasComponent, NotasComponent],
@@ -43,7 +48,13 @@ import { NotasComponent } from './components/notas/notas.component';
     MatIconModule,
     MatToolbarModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    NgxMaskDirective, 
+    NgxMaskPipe,
+    SweetAlert2Module.forRoot()
+
+
   ],
   providers: [
     {
@@ -52,6 +63,7 @@ import { NotasComponent } from './components/notas/notas.component';
       multi: true,
     },
     AuthGuard,
+    provideNgxMask()
   ],
   bootstrap: [AppComponent],
 })

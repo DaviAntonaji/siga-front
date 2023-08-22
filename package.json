@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check ",
     "test": "ng test"
   },
   "private": true,
@@ -20,7 +20,10 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@sweetalert2/ngx-sweetalert2": "^12.2.0",
+    "ngx-mask": "^16.2.9",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.7.27",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
