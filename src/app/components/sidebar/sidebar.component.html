@@ -6,7 +6,7 @@
     [ngClass]="{ 'sidenav-collapsed': collapsedNav && !mobileQuery.matches }"
   >
     <div class="sidenav-header">
-      <img src="/assets/img/logo-branca.png" style="width: 100px;"/>
+      <img src="/assets/img/logo-branca.png" [ngStyle]="{'width': collapsedNav ? '65px' : '100px'}"/>
     </div>
     <mat-nav-list class="dashboard">
       <a
@@ -38,7 +38,7 @@
 
       <span class="example-fill-remaining-space"></span>
 
-      <button [matMenuTriggerFor]="menuUser" class="transparent"> <img mat-card-avatar style="background-size: cover !important; margin-top:15px;" [src]="aluno.FOTO_URL"></button>
+      <button [matMenuTriggerFor]="menuUser" class="transparent" style=" margin-top:15px; "> <img mat-card-avatar style="background-size: cover !important; width:40px; height:40px; " [src]="aluno.FOTO_URL"></button>
 
       <mat-menu #menuUser="matMenu">
 

@@ -12,6 +12,26 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
   loginForm: any;
+  selectedOption: any = 'cpf';
+  mask = '000.000.000-00';
+  loading:any = false;
+
+  onRadioChange(event: any) {
+    this.selectedOption = event.value;
+    console.log(event.value);
+    this.updateMask();
+  }
+
+  updateMask() {
+    if (this.selectedOption === 'cpf') {
+      this.mask = '000.000.000-00';
+    } else if (this.selectedOption === 'rg') {
+      this.mask = '00.000.000-0-LL'; // Substitua LL pela máscara específica do estado
+    } else if (this.selectedOption === 'ra') {
+      this.mask = '9999999999999';
+    }
+    console.log(this.mask);
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,34 +52,32 @@ export class LoginComponent {
       const password = this.loginForm.get('password').value;
 
       const urlSearchParams = new URLSearchParams();
-      urlSearchParams.set('id', username.replace(".", "").replace("-", ""));
+      urlSearchParams.set('id', username.replace('.', '').replace('-', '').toUpperCase());
       urlSearchParams.set('password', password);
 
       // Set the content type to 'application/x-www-form-urlencoded'
-
+     this.loading = true;
       this.authService
         .signIn(urlSearchParams.toString())
         .subscribe((response) => {
           const uid = response.session_id;
-          console.log(uid)
+          
           this.authService.verifyIfSessionIsValid(uid).subscribe((res) => {
-            console.log(res);
+            this.loading = false;
             if (res.error) {
               Swal.fire({
                 heightAuto: false,
                 title: 'Ooops.',
-                text:'Login e/ou Senha incorretos',
+                text: 'Login e/ou Senha incorretos',
                 icon: 'error',
                 iconColor: '#243645',
                 showCancelButton: false,
                 confirmButtonColor: '#243645',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
               });
-  
             } else {
               localStorage.setItem('uid', uid);
-              this.router.navigate(["/home"])
-
+              this.router.navigate(['/home']);
             }
           });
         });

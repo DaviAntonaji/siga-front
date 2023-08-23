@@ -20,17 +20,14 @@
                   <td>{{prova.ID}} -  {{ formatarData(prova.DATA) }}</td>
                   <td>
                     <ul class="avaliacoes">
-                      <ng-container *ngFor="let avaliacao of prova.AVALIACAO">
+                      <div *ngFor="let avaliacao of prova.AVALIACAO">
                         <li [ngClass]="{ 'nota-nao-lancada': avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento === '0000-00-00' || avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento === '0000-00-00T00:00:00' }">
                           <p *ngIf="avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento !== '0000-00-00' && avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento !== '0000-00-00T00:00:00'">Nota: {{ avaliacao.ACD_PlanoEnsinoAvaliacaoParcialNota }}</p>
                           <p *ngIf="avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento !== '0000-00-00' && avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento !== '0000-00-00T00:00:00'">
                             Data de Lançamento: {{ avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento | date:'dd/MM/yyyy' }}
                           </p>
-                          <p *ngIf="avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento === '0000-00-00' || avaliacao.ACD_PlanoEnsinoAvaliacaoParcialDataLancamento === '0000-00-00T00:00:00'">
-                            Nota não lançada
-                          </p>
                         </li>
-                      </ng-container>
+                      </div>
                     </ul>
                   </td>
                 </tr>

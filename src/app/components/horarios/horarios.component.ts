@@ -19,6 +19,9 @@ export class HorariosComponent {
     sexta:[],
     sabado:[]
   }
+  disciplinas:any = {
+
+  }
   diasSemana: string[] = [
     'segunda',
     'terca',
@@ -48,8 +51,24 @@ export class HorariosComponent {
   constructor(private alunoService: AlunoService) {
       this.alunoService.getHorario().subscribe(data => {
         this.horarios = data;
-        this.carregando = false;
+        this.alunoService.getProfessores().subscribe((responseProfessores) => {
+          responseProfessores.forEach(e => {
+            this.disciplinas[e.ID] = {
+              nomeDisciplina: e.DESCRICAO,
+              nomeProfessor: e.NOME
+            }
+          })
+          console.log(this.disciplinas)
+          this.carregando = false;
+        })
       })
+  } 
+  getDiaSemanaAtual(): string {
+    const diasSemana = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
+    const hoje = new Date();
+    const diaAtual = hoje.getDay(); // Isso retorna um número de 0 (domingo) a 6 (sábado)
+    const diaDaSemanaAtual = diasSemana[diaAtual];
+    return diaDaSemanaAtual;
   }
 
 }

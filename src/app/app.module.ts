@@ -28,6 +28,7 @@ import { NotasComponent } from './components/notas/notas.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask, provideNgxMask } from 'ngx-mask';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -48,6 +49,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatIconModule,
     MatToolbarModule,
     MatTableModule,
+    MatRadioModule,
     MatProgressSpinnerModule,
     MatMenuModule,
     NgxMaskDirective, 

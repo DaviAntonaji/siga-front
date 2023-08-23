@@ -9,7 +9,7 @@ import { AlunoService } from 'src/app/services/aluno.service';
 })
 export class FaltasComponent {
   faltas: FaltaModel[] = [];
-  displayedColumns: string[] = ['ID', 'DESCRICAO', 'FALTAS', 'TOTAL'];
+  displayedColumns: string[] = [ 'DESCRICAO', 'AULAS', 'FALTAS', 'TOTAL'];
   faltasTable: any;
   carregando: boolean = true;
 
@@ -22,7 +22,7 @@ export class FaltasComponent {
   }
   calculaPresenca(PRESENCAS: any, TOTAL: any) {
     if (TOTAL > 0) {
-      return (PRESENCAS / TOTAL) * 100;
+      return Math.round((PRESENCAS / TOTAL) * 100);
     }
     return 100;
   }

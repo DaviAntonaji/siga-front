@@ -6,13 +6,7 @@
   <div class="example-table-container">
     <mat-table [dataSource]="faltasTable" class="example-table">
       <!-- ID Column -->
-      <ng-container matColumnDef="ID">
-        <mat-header-cell *matHeaderCellDef
-          >Código da disciplina</mat-header-cell
-        >
-        <mat-cell *matCellDef="let element">{{ element.ID }}</mat-cell>
-      </ng-container>
-
+     
       <!-- DESCRICAO Column -->
       <ng-container matColumnDef="DESCRICAO">
         <mat-header-cell *matHeaderCellDef>Disciplina</mat-header-cell>
@@ -27,6 +21,13 @@
         >
       </ng-container>
 
+      <!-- PRESENCAS Column -->
+      <ng-container matColumnDef="AULAS">
+        <mat-header-cell *matHeaderCellDef>Aulas</mat-header-cell>
+        <mat-cell *matCellDef="let element"
+          >{{ element.TOTAL }} aulas ministradas</mat-cell
+        >
+      </ng-container>
       <!-- PRESENCAS Column -->
       <ng-container matColumnDef="PRESENCAS">
         <mat-header-cell *matHeaderCellDef>Presenças</mat-header-cell>

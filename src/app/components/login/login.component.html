@@ -1,17 +1,31 @@
 <!-- login.component.html -->
-<img src="/assets/img/logo-branca.png" class="logo-faculdade"/>
+<img src="/assets/img/logo-branca.png" class="logo-faculdade" />
 <mat-card>
-    <mat-card-title>SIGA - FATEC</mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <input matInput placeholder="CPF" formControlName="username">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="password" placeholder="Senha" formControlName="password">
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Entrar</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-title>SIGA - FATEC</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+      <mat-radio-group (change)="onRadioChange($event)" color="primary">
+        <mat-radio-button value="cpf" class="example-radio-button" checked>CPF</mat-radio-button>
+        <mat-radio-button value="rg" class="example-radio-button" >RG</mat-radio-button>
+        <mat-radio-button value="ra" class="example-radio-button" >RA</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field>
+        <input matInput placeholder="Login" formControlName="username" [mask]="mask"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Senha"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" (disabled)="loading">Entrar</button>
+      <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+      
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

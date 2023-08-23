@@ -14,9 +14,15 @@ export class NotasComponent {
   constructor(private alunoService: AlunoService) {
     this.alunoService.getNotas().subscribe((data) => {
       this.notas = data;
+  
+      for (const disciplina of this.notas) {
+          disciplina.PROVAS.sort((a, b) => a.ID.localeCompare(b.ID));
+      }
+  
       console.log(this.notas);
       this.carregando = false;
-    });
+  });
+  
   }
   formatarData(data: string): string {
     if(data === '0000-00-00' || data === '0000-00-00T00:00:00') {
